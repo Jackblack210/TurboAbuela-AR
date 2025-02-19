@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToleTolers AR Experience</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <style> 
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            max-width: 800px;
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo {
+            width: 80%;
+            height: auto;
+            margin-bottom: 20px;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        @media screen and (max-width: 768px) {
+            .logo {
+                width: 80%;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .logo {
+                width: 80%;
+            }
+        }
+
+        model-viewer { 
+            width: 100%; 
+            height: 500px; 
+            background-color: #b0b0b0;
+            border-radius: 10px;
+            margin: 20px 0;
+        } 
+
+        #ar-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        #ar-button::before {
+            content: '🔍';
+            font-size: 1.2em;
+        }
+
+        #ar-button:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: #f0f0f0;
+            border-radius: 2px;
+        }
+
+        .update-bar {
+            background: #4CAF50;
+            height: 100%;
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+
+        .description {
+            margin: 20px 0;
+            color: #666;
+            line-height: 1.6;
+        }
+    </style> 
+</head>
+<body>
+    <div class="container">
+        <img src="Tole-logo-sin-fondo.png" alt="ToleTolers Logo" class="logo">
+        <h1>ToleTolers Verano 2025</h1>
+        
+        <div class="description">
+            Explora nuestro modelo 3D en <strong>realidad aumentada</strong>. 
+            ¡Coloca a Turbo Abuela en <strong>tu espacio real</strong>!
+            <p><small>*Para ver en AR necesitas un dispositivo móvil compatible con realidad aumentada.</small></p>
+        </div>
+        
+        <model-viewer 
+            src="Turbo-grannyV2.glb" 
+            ar 
+            ar-modes="webxr scene-viewer quick-look" 
+            camera-controls 
+            tone-mapping="neutral" 
+            poster="poster.webp" 
+            shadow-intensity="1" 
+            exposure="1"
+            auto-rotate
+            rotation-per-second="30deg"
+            autoplay>
+            
+            <div class="progress-bar hide" slot="progress-bar">
+                <div class="update-bar"></div>
+            </div>
+
+            <button slot="ar-button" id="ar-button">
+                Ver en Realidad Aumentada
+            </button>
+        </model-viewer>
+    </div>
+</body>
+</html>
