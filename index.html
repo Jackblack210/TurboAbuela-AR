@@ -26,6 +26,34 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
 
+        h2 {
+            font-size: 2.2em;
+            background: linear-gradient(120deg, #4a4a4a 0%, #ff3333 40%, #ff0000 50%, #ff3333 60%, #4a4a4a 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 900;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin: 15px 0;
+            font-family: 'Segoe UI', sans-serif;
+            position: relative;
+            padding: 10px 0;
+            animation: gradientMove 3s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
         .container {
             background: white;
             padding: 20px;
@@ -116,6 +144,7 @@
     <div class="container">
         <img src="Tole-logo-sin-fondo.png" alt="ToleTolers Logo" class="logo">
         <h1>ToleTolers Verano 2025</h1>
+        <h2>Turbo Abuela</h2>
         
         <div class="description">
             Explora nuestro modelo 3D en <strong>realidad aumentada</strong>. 
